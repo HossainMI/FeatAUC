@@ -47,6 +47,8 @@ FeatAUC = function(dependent, data, ind_num) {
 
 library(Hmisc)
 
+library(pROC)
+
 data = spss.get("FeatAUC_data.sav",
                 use.value.labels = TRUE)
 
