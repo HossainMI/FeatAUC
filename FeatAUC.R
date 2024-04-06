@@ -45,8 +45,6 @@ FeatAUC = function(dependent, data, ind_num) {
 
 # Demo analysis
 
-setwd ("G:\\R studio Project\\Feature Selection (AUC)")
-
 library(Hmisc)
 
 data = spss.get("FeatAUC_data.sav",
