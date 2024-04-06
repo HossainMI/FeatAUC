@@ -12,3 +12,5 @@ The function returns a list containing the following elements:
   The index of the best model (with the highest AUC value).
   A string describing the best model and its AUC value.
   The combination of predictors for the best model.
+
+Note: Ensure that the dependent variable is placed first in the order within the dataset.
