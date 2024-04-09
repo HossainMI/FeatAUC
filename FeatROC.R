@@ -90,12 +90,12 @@ FeatROC = function(roc_list, ncol) {
             plot.title = element_text(size = 12,
                                       face = "bold",
                                       hjust = 0.5),
-            plot.subtitle = element_text(hjust = 0.5),
-            plot.caption = element_text(hjust = 0.5),
             axis.title = element_text(size = 8,
                                       face = "bold.italic"),
             panel.background = element_blank(),
-            panel.grid.major = element_blank(),
+            panel.grid = element_line(color = "#8ccde3",
+                                      size = 0.5,
+                                      linetype = 2),
             panel.border = element_rect(fill = NA,
                                         size = 0.5,
                                         colour = "black"),
@@ -103,7 +103,8 @@ FeatROC = function(roc_list, ncol) {
             axis.text = element_text(colour = "black"))
   }
   
-  grid.arrange(grobs = ggroc_plots, ncol = ncol)
+  grid.arrange(grobs = ggroc_plots,
+               ncol = ncol)
 }
 
 
