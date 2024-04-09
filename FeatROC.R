@@ -73,6 +73,8 @@ cat("Best model:", auc_values[[2]],
                                collapse = " + "), "\n")
 
 
+# ROC curve for all combinations.
+
 FeatROC = function(roc_list, ncol) {
   
   library(ggplot2)
