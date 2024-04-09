@@ -112,6 +112,6 @@ FeatROC = function(roc_list, ncol) {
 
 roc_list = auc_values[[4]]
 
-FeatROC(roc_list = roc_list[1:4],
-    ncol = 2)
+FeatROC(roc_list = roc_list[1:9],
+    ncol = 3)
 
