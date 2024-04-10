@@ -31,5 +31,6 @@ FunROC = function(roc_list) {
   grid.arrange(grobs = plots, ncol = length(roc_list))
 }
 
+roc_list = auc_values[[5]]
 
 FunROC(list(roc_list))
