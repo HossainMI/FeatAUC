@@ -14,6 +14,11 @@ MatDF = function(model_combinations, roc_list, auc_values) {
                      Specificity = 1 - roc$specificities,
                      AUC = auc)
     
+    colnames(df) = c("Model Combination",
+                     "Sensitivity",
+                     "1-Specificity",
+                     "AUC")
+    
     cat("Model Combination:", paste(model, collapse = " + "), "\n")
     print(df)
     cat("\n")
