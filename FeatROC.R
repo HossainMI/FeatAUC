@@ -3,6 +3,7 @@
 FeatAUC = function(dependent, data, ind_num) {
   
   auc_values = numeric()
+  model_combinations = list()
   best_model = 0
   best_combination = NULL
   roc_list = list()
@@ -32,6 +33,8 @@ FeatAUC = function(dependent, data, ind_num) {
       
       roc_list[[length(roc_list) + 1]] = roc
       
+      model_combinations[[length(model_combinations) + 1]] = predictors[-1]
+      
       cat("AUC for", paste(predictors[-1],
                            collapse = " + "), ":", auc, "\n")
       
@@ -44,7 +47,12 @@ FeatAUC = function(dependent, data, ind_num) {
     }
   }
   
+  MC_df = data.frame(AUC = auc_values,
+                     Model_Combinations = sapply(model_combinations,
+                                                 paste, collapse = " + "))
+  
   return(list(auc_values,
+              MC_df,
               best_model,
               best_combination,
               roc_list))
@@ -67,9 +75,9 @@ auc_values = FeatAUC(dependent = "EANC",
                      data = data_s,
                      ind_num = 5)
 
-cat("Best model:", auc_values[[2]],
+cat("Best model:", auc_values[[3]],
     "with AUC value:", max(auc_values[[1]]),
-    "with combination:", paste(auc_values[[3]],
+    "with combination:", paste(auc_values[[4]],
                                collapse = " + "), "\n")
 
 
@@ -112,6 +120,6 @@ FeatROC = function(roc_list, ncol) {
 
 roc_list = auc_values[[4]]
 
-FeatROC(roc_list = roc_list[1:9],
+FeatROC(roc_list = roc_list,
     ncol = 3)
 
