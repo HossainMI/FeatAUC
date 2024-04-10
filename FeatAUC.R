@@ -69,9 +69,9 @@ library(pROC)
 data = spss.get("FeatAUC_data.sav",
                 use.value.labels = TRUE)
 
-data_s = data[, c(1,3,4,5,6,7,8,9,10)]
+data_s = data[, c(1,3,4,5,6)]
 
-auc_values = FeatAUC(dependent = "EANC", data = data_s, ind_num = 8)
+auc_values = FeatAUC(dependent = "EANC", data = data_s, ind_num = 4)
 
 cat("Best model:", auc_values[[3]],
     "with AUC value:", max(auc_values[[1]]),

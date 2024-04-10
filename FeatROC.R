@@ -69,11 +69,11 @@ library(pROC)
 data = spss.get("FeatAUC_data.sav",
                 use.value.labels = TRUE)
 
-data_s = data[, c(1,3,4,5,6,7)]
+data_s = data[, c(1,3,4,5,6)]
 
 auc_values = FeatAUC(dependent = "EANC",
                      data = data_s,
-                     ind_num = 5)
+                     ind_num = 4)
 
 cat("Best model:", auc_values[[3]],
     "with AUC value:", max(auc_values[[1]]),
@@ -118,8 +118,7 @@ FeatROC = function(roc_list, ncol) {
 }
 
 
-roc_list = auc_values[[4]]
+roc_list = auc_values[[5]]
 
 FeatROC(roc_list = roc_list,
     ncol = 3)
-
